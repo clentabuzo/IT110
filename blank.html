@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+    <style>
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #254c82;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 200vh;
+}
+
+.text {
+  font-size: 10vw;
+  letter-spacing: -.01em;
+  line-height: 100%;
+  margin: 0;
+  
+  width: 100%;
+  color: wheat;
+  background: linear-gradient(to right, #b6b6b6, #b6b6b6) no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 0%;
+  transition: background-size cubic-bezier(.1,.5,.5,1) 0.5s;
+  
+
+  border-bottom: 1px solid #b6b6b6;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FFD401;
+  color: #183153;
+  
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transform-origin: center;
+  transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text:hover > span {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text">CCIS<span>HIRAYA</span></h1>
+        <h1 class="text">CAS<span>KINAADMAN</span></h1>
+        <h1 class="text">CEGS<span>I LIKE THAT</span></h1>
+        <h1 class="text">CED<span>NOTHING</span></h1>
+        <h1 class="text">CAA<span>GUNA</span></h1>
+      </div>
+
+<script>gsap.registerPlugin(ScrollTrigger);
+
+    const textElements = gsap.utils.toArray('.text');
+    
+    textElements.forEach(text => {
+      gsap.to(text, {
+        backgroundSize: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: text,
+          start: 'center 80%',
+          end: 'center 20%',
+          scrub: true,
+        },
+      });
+    });
+    </script>
+</body>
+</html>
